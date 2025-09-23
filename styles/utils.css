@@ -1,0 +1,15 @@
+.wrapper {
+ @apply max-w-[1880px] mx-auto w-full md:px-5 px-4;
+}
+
+.bg-black {
+ @apply bg-[#1c1c1c];
+}
+
+.bg-main {
+ @apply bg-[#1c1c1c];
+}
+
+.text-main {
+ @apply text-[#eeeeee];
+}
