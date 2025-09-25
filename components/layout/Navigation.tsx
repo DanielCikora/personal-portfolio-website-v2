@@ -1,16 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Button from '../ui/Button';
+import { navigationItems } from '@/constants/constants';
 
 export default function Navigation() {
  const [open, setOpen] = useState<boolean>(false);
-
- const navigationItems = [
-  { text: 'Home', href: '/home' },
-  { text: 'Projects', href: '/projects' },
-  { text: 'About', href: '/about' },
-  { text: 'Contacts', href: '/contacts' },
- ];
 
  useEffect(() => {
   if (open) {
@@ -27,15 +22,12 @@ export default function Navigation() {
  return (
   <nav className='fixed top-0 left-0 w-full z-50'>
    <div className='flex items-center justify-between p-4'>
-    {/* Logo */}
-    {/* Hamburger */}
-    <button className='flex relative z-[9999] flex-col justify-between w-8 h-6' onClick={() => setOpen(!open)}>
+    <Button type='button' ariaLabel='Hamburger Button' className='flex relative z-[9999] flex-col justify-between w-8 h-6' onClick={() => setOpen(!open)}>
      <span className={`block rounded-md h-1 w-full bg-white duration-700 transition-transform ${open ? 'rotate-45 translate-y-3' : ''}`} />
      <span className={`block rounded-md h-1 w-full bg-white duration-700 transition-opacity ${open ? 'opacity-0' : ''}`} />
      <span className={`block rounded-md h-1 w-full bg-white duration-700 transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
-    </button>
+    </Button>
    </div>
-   {/* Overlay menu */}
    <div
     className={`fixed inset-0 bg-black bg-opacity-80 flex flex-col text-6xl items-center justify-center space-y-6 text-white transition-transform duration-700 z-50 ${
      open ? 'translate-x-0' : 'translate-x-full'
