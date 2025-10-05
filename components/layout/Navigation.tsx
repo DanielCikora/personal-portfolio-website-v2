@@ -9,7 +9,9 @@ export default function Navigation() {
 
  useEffect(() => {
   if (open) {
-   document.body.style.overflow = 'hidden';
+   setTimeout(() => {
+    document.body.style.overflow = 'hidden';
+   }, 300);
   } else {
    document.body.style.overflow = '';
   }
@@ -22,19 +24,34 @@ export default function Navigation() {
  return (
   <nav className='fixed top-0 left-0 w-full z-50'>
    <div className='flex items-center justify-between p-4'>
-    <Button type='button' ariaLabel='Hamburger Button' className='flex relative z-[9999] flex-col justify-between w-8 h-6' onClick={() => setOpen(!open)}>
-     <span className={`block rounded-md h-1 w-full bg-white duration-700 transition-transform ${open ? 'rotate-45 translate-y-3' : ''}`} />
-     <span className={`block rounded-md h-1 w-full bg-white duration-700 transition-opacity ${open ? 'opacity-0' : ''}`} />
-     <span className={`block rounded-md h-1 w-full bg-white duration-700 transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+    <Button
+     type='button'
+     ariaLabel='Hamburger Button'
+     className='flex relative z-[9999] flex-col justify-between w-8 h-6'
+     onClick={() => setOpen(!open)}
+    >
+     <span
+      className={`block rounded-md h-1 w-full bg-white duration-700 transition-transform ${
+       open ? 'rotate-45 translate-y-3' : ''
+      }`}
+     />
+     <span
+      className={`block rounded-md h-1 w-full bg-white duration-700 transition-opacity ${open ? 'opacity-0' : ''}`}
+     />
+     <span
+      className={`block rounded-md h-1 w-full bg-white duration-700 transition-transform ${
+       open ? '-rotate-45 -translate-y-2' : ''
+      }`}
+     />
     </Button>
    </div>
    <div
-    className={`fixed inset-0 bg-black bg-opacity-80 flex flex-col text-6xl items-center justify-center space-y-6 text-white transition-transform duration-700 z-50 ${
+    className={`fixed flex flex-col md:gap-8 gap-4 inset-0 bg-black bg-opacity-80 md:text-6xl text-5xl items-center justify-center text-white transition-transform duration-700 z-50 ${
      open ? 'translate-x-0' : 'translate-x-full'
     }`}
    >
-    <Link href='/' className='text-xl font-bold text-white mb-20'>
-     <img src='/images/logo/daniel-logo-white.png' alt='log' />
+    <Link href='/' className='block'>
+     <img className='w-full h-auto' src='/images/logo/daniel-logo-white.png' alt='log' />
     </Link>
     {navigationItems.map(({ text, href }) => (
      <Link

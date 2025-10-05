@@ -1,10 +1,17 @@
-import React from 'react'
+import Accordion from '../ui/Accordion';
+import { servicesAccordionItems } from '@/constants/constants';
+import { Reveal } from '../ui/Reveal';
 
 export default function Services() {
-  return (
-    <section className='min-h-[1600px] bg-black'>
-      <div className="wrapper">Services</div>
-      
-    </section>
-  )
+ return (
+  <section className='bg-black py-20'>
+   <div className='wrapper'>
+    <Reveal>
+     <div className='services-content grid place-items-center'>
+      <Accordion items={servicesAccordionItems} />
+     </div>
+    </Reveal>
+   </div>
+  </section>
+ );
 }

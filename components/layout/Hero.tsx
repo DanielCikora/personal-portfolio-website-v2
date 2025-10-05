@@ -23,8 +23,8 @@ export default function Hero() {
     Your browser does not support the video tag.
    </video>
    <div className='fixed z-10 flex flex-col items-center justify-center w-full h-full'>
-    <h1 className='text-8xl font-semibold text-white text-center'>{displayedText}</h1>
-    <h3 className='text-3xl text-white mt-4'>Frontend Developer</h3>
+    <h1 className='md:text-8xl text-5xl font-semibold text-white text-center'>{displayedText}</h1>
+    <h3 className='md:text-3xl text-2xl text-white mt-4'>Frontend Developer</h3>
    </div>
    <div className='absolute top-0 left-0 w-full h-full bg-black/50'></div>
   </section>
