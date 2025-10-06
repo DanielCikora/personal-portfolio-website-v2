@@ -1,6 +1,7 @@
-import { AccordionItemType } from '@/types/ui';
+import { ChatsIcon, CodeIcon, DeviceMobileIcon, GaugeIcon, ShareNetworkIcon, SparkleIcon } from '@phosphor-icons/react';
+import { AccordionItemType, NavigationPropsType } from '@/types/ui';
 
-export const navigationItems = [
+export const navigationItems: NavigationPropsType[] = [
  { text: 'Home', href: '/home' },
  { text: 'Projects', href: '/projects' },
  { text: 'About', href: '/about' },
@@ -8,10 +9,43 @@ export const navigationItems = [
 ];
 
 export const servicesAccordionItems: AccordionItemType[] = [
- { id: 'test1', content: 'test1', title: 'test1' },
- { id: 'test2', content: 'test2', title: 'test2' },
- { id: 'test3', content: 'test3', title: 'test3' },
- { id: 'test4', content: 'test4', title: 'test4' },
- { id: 'test5', content: 'test5', title: 'test5' },
- { id: 'test6', content: 'test6', title: 'test6' },
+ {
+  id: 'custom-website-development',
+  title: 'Custom Website Development',
+  content:
+   'Tailor-made digital solutions that align with your brand identity and business objectives for a standout online presence.',
+  icon: CodeIcon,
+ },
+ {
+  id: 'responsive-web-development',
+  title: 'Responsive Web Development',
+  content: 'Ensure optimal user experience on any device with fluid and adaptive design techniques.',
+  icon: DeviceMobileIcon,
+ },
+ {
+  id: 'social-media-integration',
+  title: 'Social Media Integration',
+  content: 'Seamlessly integrate social platforms to enhance audience engagement and expand online reach.',
+  icon: ShareNetworkIcon,
+ },
+ {
+  id: 'consultation-services',
+  title: 'Consultation Services',
+  content:
+   'Gain valuable insights and tailored strategies to elevate your online presence and achieve your business goals.',
+  icon: ChatsIcon,
+ },
+ {
+  id: 'website-optimization',
+  title: 'Website Optimization',
+  content:
+   'Enhance website performance and user experience through strategic optimizations, ensuring maximum impact and visibility.',
+  icon: GaugeIcon,
+ },
+ {
+  id: 'creative-frontend-solutions',
+  title: 'Creative Frontend Solutions',
+  content: 'Showcase modern animations and interactive features to captivate users and leave a lasting impression.',
+  icon: SparkleIcon,
+ },
 ];

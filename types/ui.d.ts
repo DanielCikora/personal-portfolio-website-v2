@@ -1,4 +1,10 @@
-import { ReactNode } from "react";
+import { Icon } from '@phosphor-icons/react';
+import { ReactNode } from 'react';
+
+export type NavigationPropsType = {
+ text: string;
+ href: string;
+};
 
 export type ButtonPropsType = {
  onClick: () => void;
@@ -9,13 +15,14 @@ export type ButtonPropsType = {
 };
 
 export type AccordionItemType = {
-  id: string;
-  title: string;
-  content: string;
+ id: string;
+ title: string;
+ content: string;
+ icon: Icon;
 };
 
 export type AccordionPropsType = {
-  items: AccordionItem[];
+ items: AccordionItem[];
 };
 
 export type RevealPropsType = {
@@ -24,6 +31,6 @@ export type RevealPropsType = {
 };
 
 export type TitlePropsType = {
-    className?: string;
-    titleText: string;
-}
+ className?: string;
+ titleText: string;
+};
