@@ -3,13 +3,23 @@
 }
 
 .bg-black {
- @apply bg-[#1c1c1c];
+ @apply bg-[#040404];
 }
 
 .bg-main {
- @apply bg-[#1c1c1c];
+ @apply bg-[#040404];
 }
 
 .text-main {
  @apply text-[#eeeeee];
+}
+
+/* Font Family */
+
+.porter-sans-block {
+  font-family: 'Porter Sans Block', sans-serif;
+}
+
+.inter {
+   font-family: "Inter", sans-serif;
 }

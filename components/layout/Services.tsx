@@ -1,7 +1,7 @@
 'use client';
 import Accordion from '../ui/Accordion';
 import { servicesAccordionItems } from '@/constants/constants';
-import { Reveal } from '../ui/Reveal';
+import { Reveal } from '../ui/animations/Reveal';
 
 export default function Services() {
  return (
