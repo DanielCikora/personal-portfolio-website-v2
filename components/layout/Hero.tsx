@@ -6,6 +6,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LineY from '../ui/LineY';
 import LineX from '../ui/LineX';
+import Info from '../ui/Info';
+import { saturnInfo } from '@/constants/constants';
 gsap.registerPlugin(ScrollTrigger);
 
 function Saturn() {
@@ -25,8 +27,9 @@ function Saturn() {
   const ctx = canvas.getContext('2d');
   if (ctx) {
    const gradient = ctx.createRadialGradient(256, 256, 120, 256, 256, 256);
-   gradient.addColorStop(0.5, 'rgba(255,255,255,0)');
-   gradient.addColorStop(0.6, 'rgba(255,255,255,0.4)');
+   gradient.addColorStop(0.45, 'rgba(255,255,255,0)');
+   gradient.addColorStop(0.55, 'rgba(255,255,255,0.3)');
+   gradient.addColorStop(0.7, 'rgba(255,255,255,0.1)');
    gradient.addColorStop(1, 'rgba(255,255,255,0)');
    ctx.fillStyle = gradient;
    ctx.fillRect(0, 0, 512, 512);
@@ -45,25 +48,39 @@ function Saturn() {
   <group>
    {/* Saturn planet */}
    <mesh ref={planetRef}>
-    <sphereGeometry args={[2, 64, 64]} />
-    <meshStandardMaterial
-     map={texture}
-     color={'#d9d9d9'}
-     emissive={'#777'}
-     emissiveIntensity={0.1}
-     metalness={0.3}
-     roughness={0.8}
-    />
-   </mesh>
+  <sphereGeometry args={[2, 64, 64]} />
+  <meshPhongMaterial
+    map={texture}
+    color={'#e0e0e0'}
+    shininess={5}
+    emissive={'#aaaaaa'}
+    emissiveIntensity={0.5}
+    flatShading={false}
+  />
+</mesh>
 
-   {/* Saturn ring (flat disk style) */}
-   <mesh ref={ringRef} rotation={[Math.PI / 2.3, 0, 0]} position={[0, 0, 0]}>
-    <ringGeometry args={[2.6, 4.2, 128]} />
-    <meshBasicMaterial map={ringTexture} transparent opacity={0.8} side={THREE.DoubleSide} />
+
+   {/* Saturn ring */}
+   <mesh
+    ref={ringRef}
+    rotation={[Math.PI / 2.3, 0, 0]}
+    position={[0, 0, 0]}
+    renderOrder={-1} // 👈 helps avoid overdraw
+   >
+    <ringGeometry args={[2.7, 4.3, 128]} /> {/* a bit larger, so it's not intersecting */}
+    <meshBasicMaterial
+     map={ringTexture}
+     transparent
+     opacity={0.85}
+     side={THREE.DoubleSide}
+     depthWrite={false} // 👈 prevents ring from covering planet
+     blending={THREE.AdditiveBlending} // 👈 gives a nice glow effect
+    />
    </mesh>
   </group>
  );
 }
+
 
 export default function Hero() {
  const fullText: string = 'DANIEL';
@@ -107,12 +124,20 @@ export default function Hero() {
  return (
   <section ref={sectionRef} className='relative w-full h-dvh overflow-hidden bg-black'>
    <LineY className='right-20' />
-   <LineX className='bottom-36' />
+   <div className='absolute 2xl:bottom-[112px] bottom-[106px]'>
+    <LineX className='' />
+
+    <div className='flex flex-wrap items-center justify-center pt-2'>
+     {saturnInfo.map(({ infoNumber, borderRight, infoText }) => (
+      <Info key={infoText} infoNumber={infoNumber} infoText={infoText} borderRight={borderRight} />
+     ))}
+    </div>
+   </div>
 
    <Canvas camera={{ position: [0, 0, 7], fov: 45 }} className='absolute inset-0'>
     <ambientLight intensity={0.7} />
     <directionalLight position={[3, 2, 5]} intensity={1.3} />
-    <directionalLight position={[-3, -2, -4]} intensity={0.8} color={'#aaaaaa'} /> {/* Fill light */}
+    <directionalLight position={[-3, -2, -4]} intensity={0.8} color={'#aaaaaa'} />
     <Saturn />
    </Canvas>
 
@@ -124,9 +149,8 @@ export default function Hero() {
      {displayedText}
     </h1>
    </div>
-
    <h3
-    className={`md:text-5xl uppercase inter text-3xl bg-black p-3 bottom-28 absolute right-5 text-white mt-4 transition-opacity duration-1000 text-center ${
+    className={`2xl:text-5xl uppercase inter text-3xl bg-black py-3 px-5 bottom-28 absolute right-0 text-white mt-4 transition-opacity duration-1000 text-center ${
      showSubtitle ? 'opacity-100' : 'opacity-0'
     }`}
    >

@@ -49,3 +49,31 @@ export const servicesAccordionItems: AccordionItemType[] = [
   icon: SparkleIcon,
  },
 ];
+
+export const saturnInfo = [
+ {
+  infoText: 'POSITION:',
+  infoNumber: '9.58 AU',
+  borderRight: true,
+ },
+ {
+  infoText: 'DIAMETER:',
+  infoNumber: '120536 km',
+  borderRight: true,
+ },
+ {
+  infoText: 'ROTATION:',
+  infoNumber: '10.7 hrs',
+  borderRight: true,
+ },
+ {
+  infoText: 'RINGS:',
+  infoNumber: '7 major',
+  borderRight: true,
+ },
+ {
+  infoText: 'MOONS:',
+  infoNumber: '145',
+  borderRight: false,
+ },
+];
