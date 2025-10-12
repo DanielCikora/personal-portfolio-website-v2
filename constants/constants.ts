@@ -3,9 +3,9 @@ import { AccordionItemType, NavigationPropsType } from '@/types/ui';
 
 export const navigationItems: NavigationPropsType[] = [
  { text: 'Home', href: '/home' },
- { text: 'Projects', href: '/projects' },
  { text: 'About', href: '/about' },
  { text: 'Contact', href: '/contact' },
+ { text: 'Projects', href: '/projects' },
 ];
 
 export const servicesAccordionItems: AccordionItemType[] = [
