@@ -2,12 +2,7 @@ My Personal Portfolio Website
 
 
 
-Designed and Developed by `Daniel Cikora`
-
-
-Inspired by PipBoy, and other Pixelated Interfaces.
-
-
+Developed by `Daniel Cikora`
 
 Start the project with `npm run dev`
 Be sure to do `npm install` first however.
